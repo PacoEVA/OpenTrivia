@@ -1,0 +1,37 @@
+import './footer.css';
+
+export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
+    return (
+        <footer className="footer">
+            <div className="footer-content">
+                <div className="footer-section">
+                    <h3>Entriviasdo</h3>
+                    <p>Tu plataforma de trivia y entretenimiento</p>
+                </div>
+
+                <div className="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/about">Acerca de</a></li>
+                        <li><a href="/contact">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div className="footer-section">
+                    <h4>Redes sociales</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="footer-bottom">
+                <p>&copy; {currentYear} PacoEva🎭. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    );
+};
