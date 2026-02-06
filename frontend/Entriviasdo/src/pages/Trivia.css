@@ -1,0 +1,293 @@
+.trivia-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.trivia-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    padding: 3rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trivia-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.trivia-title {
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.trivia-subtitle {
+    color: #666;
+    font-size: 1rem;
+}
+
+.question-section {
+    margin-bottom: 2rem;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #afc0d8 50%, #6b82aa 50%);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.answers-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.answer-button {
+    background: white;
+    border: 3px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+.answer-button:hover {
+    border-color: #667eea;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.answer-button:hover::before {
+    width: 5px;
+}
+
+.answer-button.selected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: white;
+    transform: scale(1.02);
+}
+
+.answer-button.correct {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border-color: #11998e;
+    color: white;
+    animation: correctPulse 0.5s ease;
+}
+
+.answer-button.incorrect {
+    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+    border-color: #eb3349;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+@keyframes correctPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.answer-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.button-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.answer-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.answer-button.selected .answer-letter,
+.answer-button.correct .answer-letter,
+.answer-button.incorrect .answer-letter {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 2rem;
+    background: rgb(127, 201, 16);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+.submit-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+.submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.no-question {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.no-question-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.no-question-text {
+    font-size: 1.2rem;
+}
+
+.result-message {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.result-message.correct-message {
+    background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+    color: #155724;
+}
+
+.result-message.incorrect-message {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    color: #721c24;
+}
+
+.next-button {
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(17, 153, 142, 0.5);
+}
+
+@media (max-width: 768px) {
+    .trivia-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .trivia-title {
+        font-size: 2rem;
+    }
+
+    .question-text {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .answer-button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .answer-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+}

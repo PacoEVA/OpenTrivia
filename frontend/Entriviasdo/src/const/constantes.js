@@ -1,5 +1,5 @@
 const PreguntaData = {
-    Pregunta: "Cuantos lados tiene un Triangulo?",
+    pregunta: "Cuantos lados tiene un Triangulo?",
     puntaje: 5,
     nivel: 1,
     respuestas: [
