@@ -3,10 +3,10 @@ const PreguntaData = {
     puntaje: 5,
     nivel: 1,
     respuestas: [
-        { texto: "1", isCorrect: false },
-        { texto: "3 ", isCorrect: true },
-        { texto: "6", isCorrect: false },
-        { texto: "4", isCorrect: false },
+        { texto: "1", IsCorrect: false },
+        { texto: "3 ", IsCorrect: true },
+        { texto: "6", IsCorrect: false },
+        { texto: "4", IsCorrect: false },
     ],
 };
 

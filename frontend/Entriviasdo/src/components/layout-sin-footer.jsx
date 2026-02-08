@@ -6,7 +6,6 @@ import './layout.css';
 export default function LayoutSinFooter() {
     return (
         <div className="layout-container">
-            <NavBar />
             <main className="main-content">
                 <div className="content-wrapper">
                     <Outlet />
