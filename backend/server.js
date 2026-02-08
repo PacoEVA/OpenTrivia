@@ -11,7 +11,15 @@ import { mapRowToQuestion } from "./utilidades/mapRowToQuestionFN.js";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(cors());
+
+// Configurar CORS para permitir solicitudes desde el frontend
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const upload = multer({

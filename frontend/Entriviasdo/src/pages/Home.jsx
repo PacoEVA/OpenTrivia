@@ -2,7 +2,7 @@ import "./Home.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
-import PreguntaData from "../const/constantes";
+import PreguntaData, { API_URL } from "../const/constantes";
 import UploadModal from "../components/UploadModal";
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/upload-questions",
+        `${API_URL}/api/upload-questions`,
         {
           method: "POST",
           body: formData,
