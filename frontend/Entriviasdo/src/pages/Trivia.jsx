@@ -7,7 +7,7 @@ export default function Trivia() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
-
+  document.title = "Trivia Challenge - OpenTrivia";
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("data")) || [];
     console.log("Preguntas cargadas:", stored);

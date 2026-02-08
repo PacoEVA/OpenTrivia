@@ -4,6 +4,7 @@ import './score.css';
 export default function Score({ score, total, onRestart }) {
     const navigate = useNavigate();
     const percentage = Math.round((score / total) * 100);
+    document.title = `Tu puntaje: ${percentage}% - Entriviasdo`;
 
     const getMessage = () => {
         if (percentage === 100) return { text: '¡Perfecto!', emoji: '🏆', color: '#FFD700' };
