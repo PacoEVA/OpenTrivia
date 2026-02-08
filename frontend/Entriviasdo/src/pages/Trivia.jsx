@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import Score from "./score";
 import "./Trivia.css";
 
 export default function Trivia() {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("data")) || [];
@@ -17,7 +19,10 @@ export default function Trivia() {
   }
 
   if (currentIndex >= questions.preguntas.length) {
-    return <h2>🎉 Trivia finalizada</h2>;
+    return <Score score={score} total={questions.preguntas.length} onRestart={() => {
+      setCurrentIndex(0);
+      setScore(0);
+    }} />;  
   }
 
   const questionData = questions.preguntas[currentIndex];
@@ -32,14 +37,12 @@ export default function Trivia() {
     const index = answerLetters.indexOf(selectedAnswer);
     const isCorrect = questionData.opciones[index] === questionData.respuesta;
 
-    alert(
-      isCorrect
-        ? "¡Respuesta Correcta! 🎉"
-        : `Incorrecta. Correcta: ${questionData.respuesta} 😞`,
-    );
-
     setSelectedAnswer(null);
     setCurrentIndex((prev) => prev + 1); // 👈 CAMBIO REAL DE PREGUNTA
+
+    if (isCorrect) {
+      setScore((prev) => prev + 1);
+    }
   };
 
   return (
