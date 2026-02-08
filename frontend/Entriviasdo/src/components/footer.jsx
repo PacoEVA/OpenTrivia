@@ -14,17 +14,17 @@ export default function Footer() {
                 <div className="footer-section">
                     <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/about">Acerca de</a></li>
-                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/" onClick={() => alert("No ta funcionando, el tira codigo ta vago")}>Inicio</a></li>
+                        <li><a href="/about" onClick={() => alert("No ta funcionando, el tira codigo ta vago")}>Acerca de</a></li>
+                        <li><a href="/contact" onClick={() => alert("No ta funcionando, el tira codigo ta vago")}>Contacto</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-section">
                     <h4>Redes sociales</h4>
                     <ul>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Instagram</a></li>
+                        <li><a href="https://github.com/PacoEVA">GitHub</a></li>
+                        <li><a href="https://www.instagram.com/4lex.jsx">Instagram</a></li>
                     </ul>
                 </div>
             </div>

@@ -61,7 +61,7 @@ export default function Home() {
       <section className="hero-section">
         <h1 className="hero-title">¡Bienvenido a Entriviasdo!</h1>
         <p className="hero-subtitle">La plataforma de trivia más entretenida</p>
-        <button className="cta-button" onClick={handlePlayButton}>
+        <button className="cta-button" onClick={() => alert("No ta funcionando, el tira codigo ta vago")}>
           Comenzar a jugar
         </button>
         <button className="cta-button" onClick={() => setIsModalOpen(true)}>
