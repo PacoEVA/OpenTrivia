@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <section className="hero-section">
-        <h1 className="hero-title">¡Bienvenido a Entriviasdo!</h1>
+        <h1 className="hero-title">¡Bienvenido a OpenTrivia!</h1>
         <p className="hero-subtitle">La plataforma de trivia más entretenida</p>
         <button className="cta-button" onClick={() => alert("No ta funcionando, el tira codigo ta vago")}>
           Comenzar a jugar
